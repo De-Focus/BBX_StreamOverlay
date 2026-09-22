@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Next Up Control</title>
+  <link rel="stylesheet" href="css/control.css" />
+</head>
+<body>
+  <div class="topNav">
+    <a href="index.html">Home</a>
+    <a href="scoreboard-control.html">Scoreboard</a>
+    <a href="match-info-control.html">Match Info</a>
+    <a href="commentator-assist.html">Commentator Assist</a>
+  </div>
+
+  <h1>Next Up Control</h1>
+
+  <section class="panel">
+    <h2>Next Match Setup</h2>
+
+    <label>Next Event Info</label>
+    <input id="nextEventInfo" />
+
+    <label>Target Score</label>
+    <input id="nextTargetScore" type="number" />
+
+    <label>Notes</label>
+    <input id="nextMatchNotes" />
+  </section>
+
+  <div class="players">
+    <section class="panel player1">
+      <h2>Next Player 1</h2>
+
+      <label>Profile</label>
+      <select id="nextPlayer1ProfileSelect"></select>
+      <button id="applyNextP1Profile" class="orange">Apply Profile</button>
+
+      <label>Name</label>
+      <input id="nextPlayer1Name" />
+
+      <label>Team</label>
+      <input id="nextPlayer1Team" />
+
+      <label>Beyblade Slot 1</label>
+      <input id="nextPlayer1Bey1" />
+
+      <label>Beyblade Slot 2</label>
+      <input id="nextPlayer1Bey2" />
+
+      <label>Beyblade Slot 3</label>
+      <input id="nextPlayer1Bey3" />
+    </section>
+
+    <section class="panel player2">
+      <h2>Next Player 2</h2>
+
+      <label>Profile</label>
+      <select id="nextPlayer2ProfileSelect"></select>
+      <button id="applyNextP2Profile" class="blue">Apply Profile</button>
+
+      <label>Name</label>
+      <input id="nextPlayer2Name" />
+
+      <label>Team</label>
+      <input id="nextPlayer2Team" />
+
+      <label>Beyblade Slot 1</label>
+      <input id="nextPlayer2Bey1" />
+
+      <label>Beyblade Slot 2</label>
+      <input id="nextPlayer2Bey2" />
+
+      <label>Beyblade Slot 3</label>
+      <input id="nextPlayer2Bey3" />
+    </section>
+  </div>
+
+  <section class="panel">
+    <h2>Actions</h2>
+    <button class="toggleButton green" data-key="nextMatchVisible" data-value="true">Show Next Match Overlay</button>
+    <button class="toggleButton red" data-key="nextMatchVisible" data-value="false">Hide Next Match Overlay</button>
+    <button id="loadNextMatch" class="green">Load Into Scoreboard</button>
+  </section>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/shared-control.js"></script>
+  <script src="js/next-up-control.js"></script>
+</body>
+</html>

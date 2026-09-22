@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Next Match</title>
+  <link rel="stylesheet" href="../css/overlays.css" />
+</head>
+<body>
+  <div id="nextMatch" class="sideGraphic hiddenSide">
+
+    <div class="nextTitle"></div>
+    <div id="nextEventInfo" class="nextEventInfo">ROUND 1</div>
+
+    <div id="nextPlayer1Name" class="nextP1Name">PLAYER 1</div>
+    <div id="nextPlayer1Team" class="nextP1Team"></div>
+
+    <div id="nextPlayer2Name" class="nextP2Name">PLAYER 2</div>
+    <div id="nextPlayer2Team" class="nextP2Team"></div>
+
+    <div id="nextTargetScore" class="nextTargetScore">FIRST TO 4</div>
+    <div id="nextMatchNotes" class="nextNotes"></div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="../js/simple-overlay.js"></script>
+</body>
+</html>

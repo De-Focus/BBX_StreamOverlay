@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Match Info Control</title>
+  <link rel="stylesheet" href="css/control.css" />
+</head>
+<body>
+  <div class="topNav">
+    <a href="index.html">Home</a>
+    <a href="scoreboard-control.html">Scoreboard</a>
+    <a href="next-up-control.html">Next Up</a>
+  </div>
+
+  <h1>Match Info Control</h1>
+
+  <section class="panel">
+    <h2>Match Setup</h2>
+
+    <label>Event Info</label>
+    <input id="eventInfo" placeholder="ROUND 1 / TOP CUT / GRAND FINALS" />
+
+    <label>Target Score</label>
+    <input id="targetScore" type="number" />
+  </section>
+
+  <div class="players">
+    <section class="panel player1">
+      <h2>Player 1 Info</h2>
+
+<label>Player 1 Profile</label>
+<select id="player1ProfileSelect"></select>
+<button type="button" id="applyP1Profile" class="orange">
+  Apply Profile to P1
+</button>
+
+      <label>Name</label>
+      <input id="player1Name" />
+
+      <label>Team</label>
+      <input id="player1Team" />
+
+      <label>Beyblade Slot 1</label>
+      <input id="player1Bey1" placeholder="Wizard Rod 1-60 Hexa" />
+
+      <label>Beyblade Slot 2</label>
+      <input id="player1Bey2" placeholder="Shark Scale 1-70 Low Rush" />
+
+      <label>Beyblade Slot 3</label>
+      <input id="player1Bey3" placeholder="Cobalt Dragoon 9-60 Elevate" />
+    </section>
+
+    <section class="panel player2">
+      <h2>Player 2 Info</h2>
+
+<label>Player 2 Profile</label>
+<select id="player2ProfileSelect"></select>
+<button type="button" id="applyP2Profile" class="blue">
+  Apply Profile to P2
+</button>
+
+      <label>Name</label>
+      <input id="player2Name" />
+
+      <label>Team</label>
+      <input id="player2Team" />
+
+      <label>Beyblade Slot 1</label>
+      <input id="player2Bey1" placeholder="Wizard Rod 1-60 Hexa" />
+
+      <label>Beyblade Slot 2</label>
+      <input id="player2Bey2" placeholder="Shark Scale 1-70 Low Rush" />
+
+      <label>Beyblade Slot 3</label>
+      <input id="player2Bey3" placeholder="Cobalt Dragoon 9-60 Elevate" />
+    </section>
+  </div>
+
+  <section class="panel">
+    <h2>Quick Scoring</h2>
+
+    <div class="quickScore">
+      <div>
+        <h3>Player 1</h3>
+        <button type="button" class="scorePoint spin" data-player="player1" data-points="1" data-callout="P1 Spin Finish +1">Spin +1</button>
+        <button type="button" class="scorePoint over" data-player="player1" data-points="2" data-callout="P1 Over Finish +2">Over +2</button>
+        <button type="button" class="scorePoint burst" data-player="player1" data-points="2" data-callout="P1 Burst Finish +2">Burst +2</button>
+        <button type="button" class="scorePoint xtreme" data-player="player1" data-points="3" data-callout="P1 Xtreme Finish +3">Xtreme +3</button>
+      </div>
+
+      <div>
+        <h3>Player 2</h3>
+        <button type="button" class="scorePoint spin" data-player="player2" data-points="1" data-callout="P2 Spin Finish +1">Spin +1</button>
+        <button type="button" class="scorePoint over" data-player="player2" data-points="2" data-callout="P2 Over Finish +2">Over +2</button>
+        <button type="button" class="scorePoint burst" data-player="player2" data-points="2" data-callout="P2 Burst Finish +2">Burst +2</button>
+        <button type="button" class="scorePoint xtreme" data-player="player2" data-points="3" data-callout="P2 Xtreme Finish +3">Xtreme +3</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Match Controls</h2>
+
+    <button type="button" id="undo" class="neutral">Undo Last Action</button>
+    <button id="swapPlayers">Swap Players</button>
+    <button type="button" id="resetScores" class="red">Reset Scores</button>
+    <button type="button" id="loadNextMatch" class="green">Load Next Match Into Scoreboard</button>
+    <button type="button" onclick="location.href='next-up-control.html'">Go To Next Up</button>
+    <button type="button" onclick="location.href='scoreboard-control.html'">Go To Scoreboard</button>
+  </section>
+
+<section class="panel">
+  <h2>Round Wins</h2>
+
+  <div class="quickScore">
+    <div>
+      <h3>Player 1</h3>
+      <button type="button" id="p1WinsRound" class="orange">P1 Wins Round</button>
+      <button type="button" class="roundButton neutral" data-player="player1" data-amount="-1">P1 Round -1      </button>
+    </div>
+
+    <div>
+      <h3>Player 2</h3>
+      <button type="button" id="p2WinsRound" class="blue">P2 Wins Round</button>
+      <button type="button" class="roundButton neutral" data-player="player2" data-amount="-1">P2 Round -1</button>
+    </div>
+  </div>
+
+  <button type="button" id="resetRounds" class="red">Reset Round Wins</button>
+</section>
+
+  <section class="panel">
+    <h2>Overlay Toggles</h2>
+
+    <button type="button" class="toggleButton green" data-key="scoreboardVisible" data-value="true">Show Scoreboard</button>
+    <button type="button" class="toggleButton red" data-key="scoreboardVisible" data-value="false">Hide Scoreboard</button>
+
+<span class="buttonSpacer"></span>
+
+    <button type="button" class="toggleButton" data-key="nextMatchVisible" data-value="true">Show Next Match</button>
+    <button type="button" class="toggleButton" data-key="nextMatchVisible" data-value="false">Hide Next Match</button>
+
+<span class="buttonSpacer"></span>
+
+    <button type="button" class="toggleButton" data-key="lowerThirdVisible" data-value="true">Show Lower Third</button>
+    <button type="button" class="toggleButton" data-key="lowerThirdVisible" data-value="false">Hide Lower Third</button>
+
+<span class="buttonSpacer"></span>
+
+    <button type="button" class="toggleButton green" data-key="winnerVisible" data-value="true">Show Winner</button>
+    <button type="button" class="toggleButton red" data-key="winnerVisible" data-value="false">Hide Winner</button>
+
+<span class="buttonSpacer"></span>
+
+    <button type="button" class="toggleButton" data-key="judgeCallVisible" data-value="true">Show Judge Call</button>
+    <button type="button" class="toggleButton red" data-key="judgeCallVisible" data-value="false">Hide Judge Call</button>
+
+<span class="buttonSpacer"></span>
+
+    <button type="button" class="toggleButton" data-key="tickerVisible" data-value="true">Show Ticker</button>
+    <button type="button" class="toggleButton red" data-key="tickerVisible" data-value="false">Hide Ticker</button>
+  </section>
+
+  <section class="panel">
+    <h2>Lower Third Info</h2>
+
+    <label>#Discount Code</label>
+    <input id="lowerThirdName" />
+
+    <label>Locations</label>
+    <input id="lowerThirdSub" />
+  </section>
+
+<section class="panel">
+  <h2>Automatic Ticker Categories</h2>
+
+  <button class="tickerCategory" data-category="general">General</button>
+  <button class="tickerCategory" data-category="points">Points</button>
+  <button class="tickerCategory" data-category="venue">Venue</button>
+  <button class="tickerCategory" data-category="stream">Stream</button>
+  <button class="tickerCategory" data-category="meta">Meta Tips</button>
+
+  <label>Ticker Text</label>
+  <textarea id="tickerText"></textarea>
+
+  <label>Ticker Speed</label>
+  <input id="tickerSpeed" type="number" />
+</section>
+
+  <section class="panel">
+    <h2>Bottom Ticker</h2>
+
+    <label>Ticker Text</label>
+    <textarea id="tickerText"></textarea>
+
+    <label>Ticker Speed</label>
+    <input id="tickerSpeed" type="number" />
+  </section>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/shared-control.js"></script>
+<script src="js/match-info-control.js"></script>
+</body>
+</html>

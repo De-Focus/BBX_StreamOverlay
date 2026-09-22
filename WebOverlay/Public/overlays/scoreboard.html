@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Beyblade Scoreboard</title>
+  <link rel="stylesheet" href="../css/overlays.css" />
+</head>
+<body>
+  <div id="scoreboard" class="scoreboard">
+    <img class="p1Frame" src="../assets/Player1.png" />
+    <img class="p2Frame" src="../assets/Player2.png" />
+    <img class="topBoard" src="../assets/Topboard.png" />
+
+    <img id="p1Round1" class="roundWin p1Round1 hiddenRound" src="../assets/roundP1.1.png" />
+    <img id="p1Round2" class="roundWin p1Round2 hiddenRound" src="../assets/roundP1.2.png" />
+    <img id="p2Round1" class="roundWin p2Round1 hiddenRound" src="../assets/roundP2.1.png" />
+    <img id="p2Round2" class="roundWin p2Round2 hiddenRound" src="../assets/roundP2.2.png" />
+
+    <div id="player1Name" class="p1Name">PLAYER 1</div>
+    <div id="player1Team" class="p1Team"></div>
+    <div id="player1Score" class="p1Score">0</div>
+    <div id="player1SelectedBey" class="p1SelectedBey"></div>
+
+    <div id="player2Name" class="p2Name">PLAYER 2</div>
+    <div id="player2Team" class="p2Team"></div>
+    <div id="player2Score" class="p2Score">0</div>
+    <div id="player2SelectedBey" class="p2SelectedBey"></div>
+
+    <div class="matchInfo">
+      <span id="eventInfo">ROUND 1</span>
+      <span>|</span>
+      <span>FIRST TO <span id="targetScore">4</span></span>
+    </div>
+
+    <div id="lastPoint" class="lastPoint hiddenPoint"></div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="../js/scoreboard-overlay.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Commentator Assist</title>
+  <link rel="stylesheet" href="css/control.css" />
+</head>
+<body>
+  <div class="topNav">
+    <a href="index.html">Home</a>
+    <a href="scoreboard-control.html">Scoreboard</a>
+    <a href="match-info-control.html">Match Info</a>
+    <a href="next-up-control.html">Next Up</a>
+  </div>
+
+  <h1>Commentator Assist</h1>
+
+  <section class="panel">
+    <h2 id="assistMatch">ROUND 1 | FIRST TO 4</h2>
+    <div class="currentNames">
+      <div>
+        <strong id="assistP1Name">PLAYER 1</strong>
+        <span id="assistP1Score">0</span>
+      </div>
+      <div>
+        <strong id="assistP2Name">PLAYER 2</strong>
+        <span id="assistP2Score">0</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="players">
+    <section class="panel player1">
+      <h2>Player 1 Notes</h2>
+      <p><strong>Team:</strong> <span id="assistP1Team"></span></p>
+      <p><strong>Selected Bey:</strong> <span id="assistP1Bey"></span></p>
+      <p><strong>Playstyle:</strong> <span id="assistP1Playstyle"></span></p>
+      <p><strong>Signature Bey:</strong> <span id="assistP1Signature"></span></p>
+      <p><strong>Recent Result:</strong> <span id="assistP1Result"></span></p>
+      <p><strong>Note:</strong> <span id="assistP1Note"></span></p>
+    </section>
+
+    <section class="panel player2">
+      <h2>Player 2 Notes</h2>
+      <p><strong>Team:</strong> <span id="assistP2Team"></span></p>
+      <p><strong>Selected Bey:</strong> <span id="assistP2Bey"></span></p>
+      <p><strong>Playstyle:</strong> <span id="assistP2Playstyle"></span></p>
+      <p><strong>Signature Bey:</strong> <span id="assistP2Signature"></span></p>
+      <p><strong>Recent Result:</strong> <span id="assistP2Result"></span></p>
+      <p><strong>Note:</strong> <span id="assistP2Note"></span></p>
+    </section>
+  </div>
+
+  <section class="panel">
+    <h2>Next Up</h2>
+    <p id="assistNextUp"></p>
+  </section>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/commentator-assist.js"></script>
+</body>
+</html>

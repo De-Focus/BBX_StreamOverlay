@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beyblade Stream Control Home</title>
+  <link rel="stylesheet" href="css/control.css" />
+</head>
+<body>
+  <h1>Beyblade Stream Control V3</h1>
+
+  <section class="panel hero">
+    <h2>Production Home</h2>
+
+    <div class="navGrid">
+      <a class="navCard orangeBorder" href="scoreboard-control.html">
+        <h3>Scoreboard</h3>
+        <p>Scores, selected Beys, point buttons, round wins, match wins, judge calls, replay trigger.</p>
+      </a>
+
+      <a class="navCard blueBorder" href="match-info-control.html">
+        <h3>Match Info</h3>
+        <p>Player profiles, match setup, lower thirds, ticker categories, overlay toggles.</p>
+      </a>
+
+      <a class="navCard greenBorder" href="next-up-control.html">
+        <h3>Next Up</h3>
+        <p>Prepare the next match and load it into the live scoreboard.</p>
+      </a>
+
+      <a class="navCard purpleBorder" href="commentator-assist.html">
+        <h3>Commentator Assist</h3>
+        <p>Private production page with player bios, selected Beys, scores, and next match.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>OBS Sources</h2>
+    <pre>
+Scoreboard:  http://localhost:3000/overlays/scoreboard.html
+Next Match:  http://localhost:3000/overlays/next-match.html
+Lower Third: http://localhost:3000/overlays/lower-third.html
+Winner:      http://localhost:3000/overlays/winner.html
+Judge Call:  http://localhost:3000/overlays/judge-call.html
+Ticker:      http://localhost:3000/overlays/ticker.html
+    </pre>
+  </section>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scoreboard Control</title>
+  <link rel="stylesheet" href="css/control.css" />
+</head>
+<body>
+  <div class="topNav">
+    <a href="index.html">Home</a>
+    <a href="match-info-control.html">Match Info</a>
+    <a href="next-up-control.html">Next Up</a>
+    <a href="commentator-assist.html">Commentator Assist</a>
+  </div>
+
+  <h1>Scoreboard Control</h1>
+
+  <section class="panel">
+    <h2>Current Match</h2>
+    <div class="currentNames">
+      <div><strong id="currentP1">PLAYER 1</strong><span id="currentP1Score">0</span></div>
+      <div><strong id="currentP2">PLAYER 2</strong><span id="currentP2Score">0</span></div>
+    </div>
+  </section>
+
+  <div class="players">
+    <section class="panel player1">
+      <h2>Player 1</h2>
+
+      <label>Selected Bey This Round</label>
+      <select id="player1SelectedBey">
+        <option value="1">Slot 1</option>
+        <option value="2">Slot 2</option>
+        <option value="3">Slot 3</option>
+      </select>
+
+      <div class="selectedBeyPreview" id="player1SelectedPreview"></div>
+
+      <div class="scoreRow">
+        <button type="button" id="p1Minus">-1</button>
+        <span id="player1Score">0</span>
+        <button type="button" id="p1Plus1">+1</button>
+        <button type="button" id="p1Plus2">+2</button>
+        <button type="button" id="p1Plus3">+3</button>
+      </div>
+
+      <button type="button" id="p1WinsRound" class="orange">P1 Wins Round</button>
+      <button type="button" id="p1WinsMatch" class="green">P1 Wins Match</button>
+    </section>
+
+    <section class="panel player2">
+      <h2>Player 2</h2>
+
+      <label>Selected Bey This Round</label>
+      <select id="player2SelectedBey">
+        <option value="1">Slot 1</option>
+        <option value="2">Slot 2</option>
+        <option value="3">Slot 3</option>
+      </select>
+
+      <div class="selectedBeyPreview" id="player2SelectedPreview"></div>
+
+      <div class="scoreRow">
+        <button type="button" id="p2Minus">-1</button>
+        <span id="player2Score">0</span>
+        <button type="button" id="p2Plus1">+1</button>
+        <button type="button" id="p2Plus2">+2</button>
+        <button type="button" id="p2Plus3">+3</button>
+      </div>
+
+      <button type="button" id="p2WinsRound" class="blue">P2 Wins Round</button>
+      <button type="button" id="p2WinsMatch" class="green">P2 Wins Match</button>
+    </section>
+  </div>
+
+  <section class="panel">
+    <h2>Quick Scoring</h2>
+    <p class="hint">Point buttons also trigger the OBS replay hotkey if Auto Replay is enabled.</p>
+
+    <div class="quickScore">
+      <div>
+        <h3>Player 1</h3>
+        <button class="scorePoint spin" data-player="player1" data-points="1" data-callout="P1 Spin Finish +1">Spin +1</button>
+        <button class="scorePoint over" data-player="player1" data-points="2" data-callout="P1 Over Finish +2">Over +2</button>
+        <button class="scorePoint burst" data-player="player1" data-points="2" data-callout="P1 Burst Finish +2">Burst +2</button>
+        <button class="scorePoint xtreme" data-player="player1" data-points="3" data-callout="P1 Xtreme Finish +3">Xtreme +3</button>
+      </div>
+
+      <div>
+        <h3>Player 2</h3>
+        <button class="scorePoint spin" data-player="player2" data-points="1" data-callout="P2 Spin Finish +1">Spin +1</button>
+        <button class="scorePoint over" data-player="player2" data-points="2" data-callout="P2 Over Finish +2">Over +2</button>
+        <button class="scorePoint burst" data-player="player2" data-points="2" data-callout="P2 Burst Finish +2">Burst +2</button>
+        <button class="scorePoint xtreme" data-player="player2" data-points="3" data-callout="P2 Xtreme Finish +3">Xtreme +3</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Match Controls</h2>
+    <button id="undo" class="neutral">Undo Last Action</button>
+    <button id="resetScores" class="red">Reset Scores</button>
+    <button id="resetRounds" class="red">Reset Round Wins</button>
+    <button id="clearWinner">Clear Winner</button>
+    <button id="swapPlayers">Swap Players</button>
+  </section>
+
+  <section class="panel">
+    <h2>Manual Point Callout</h2>
+    <button class="pointButton spin" data-point="Spin Finish">Spin Finish</button>
+    <button class="pointButton over" data-point="Over Finish">Over Finish</button>
+    <button class="pointButton burst" data-point="Burst Finish">Burst Finish</button>
+    <button class="pointButton xtreme" data-point="Xtreme Finish">Xtreme Finish</button>
+  </section>
+
+  <section class="panel">
+    <h2>Judge / Match Call Overlays</h2>
+    <button class="judgeButton neutral" data-call="JUDGE REVIEW">Judge Review</button>
+    <button class="judgeButton neutral" data-call="RESHOOT">Reshoot</button>
+    <button class="judgeButton neutral" data-call="PENALTY">Penalty</button>
+    <button class="judgeButton neutral" data-call="DECK CHECK">Deck Check</button>
+    <button class="judgeButton neutral" data-call="EQUIPMENT CHECK">Equipment Check</button>
+    <button class="judgeButton neutral" data-call="MATCH PAUSED">Match Paused</button>
+    <button class="toggleButton red" data-key="judgeCallVisible" data-value="false">Hide Judge Call</button>
+  </section>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/shared-control.js"></script>
+  <script src="js/scoreboard-control.js"></script>
+</body>
+</html>
